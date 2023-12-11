@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    var user = {
+        name: "Çağatay",
+        surname: "Yıldız",
+        age: 20,
+        address: null
+        // address:{
+        //     city: "İstanbul"
+        // }
+    }
+
+    //null, undefined check
+    user.address = user.address ?? "Beşiktaş"
+
+    if (user.address) {
+        console.log(user.address);
+    }
+
+
+    var number = "5"
+
+    if(number == 5){
+        // var result = number * 10
+        console.log(number.toFixed(2));
+    }
+
+
+
+
+</script>
+
+</html>

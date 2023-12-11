@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    function calc(x, y, z) {
+
+        var result = x + y;
+        z(result)
+
+    }
+
+    calc(10, 20, print)
+
+    function print(data) {
+        console.log(data);
+    }
+
+    //for, foreach, map
+    var cities = ["İstanbul", "Ankara", "İstanbul", "Aydın"]
+
+    cities.forEach(function (item, index) {
+        console.log(item, index);
+    })
+
+    var countries = ["Türkiye", "Almanya", "Fransa", "İngiltere"]
+
+    var newCountries = countries.map(function (item, index) {
+        return item.toUpperCase()
+    })
+
+
+    // function getCity(city) {
+    //     console.log(city);
+    // }
+
+</script>
+
+</html>
