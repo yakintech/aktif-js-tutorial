@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p style="color:tomato" id="post">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis velit sint
+        temporibus laboriosam tenetur quae quia neque, id quis sapiente eos odit, vero excepturi? Magnam aliquam quia
+        non explicabo ducimus.</p>
+
+        <p>İzmir</p>
+
+    <button onclick="changeColor()">Change Color</button>
+</body>
+<script>
+    // var pElement = document.getElementById('post')
+
+    var pElement = document.querySelector("p")
+    console.log(pElement);
+
+    function changeColor() {
+        pElement.style.color = 'green'
+    }
+
+
+</script>
+
+</html>

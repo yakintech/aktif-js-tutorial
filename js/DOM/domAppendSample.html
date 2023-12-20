@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul>
+
+    </ul>
+    <button onclick="addRandom()">Add Random Number</button>
+
+</body>
+<script>
+    function addRandom() {
+        var randomNumber = Math.floor(Math.random() * 1000)
+
+        var lielement = document.createElement("li")
+        lielement.innerHTML = randomNumber
+
+        document.querySelector("ul").appendChild(lielement)
+    }
+</script>
+
+</html>
