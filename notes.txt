@@ -1,1 +1,7 @@
 selectors
+https://webdesign.tutsplus.com/the-30-css-selectors-you-must-memorize--net-16048t
+
+
+js style guide
+https://google.github.io/styleguide/jsguide.html
+https://www.w3schools.com/js/js_conventions.asp

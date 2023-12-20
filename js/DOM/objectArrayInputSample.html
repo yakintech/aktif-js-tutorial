@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="">Name</label>
+        <input type="text" id="name" />
+    </div>
+    <div>
+        <label for="">Surname</label>
+        <input type="text" id="surname" />
+    </div>
+    <div>
+        <button onclick="add()">Add</button>
+        <button onclick="empty()">Empty</button>
+    </div>
+    <hr>
+    <h3></h3>
+    <hr>
+    <ul>
+
+    </ul>
+</body>
+<script>
+    //Butona tıklandığında isim ve soyismi li olarak eklesin. "Çağatay Yıldız"
+
+    let users = []
+
+    function add() {
+
+        var name = document.getElementById("name").value
+        var surname = document.getElementById("surname").value
+        
+        //eğer bu user dizide varsa ekleme. Name ve Surname kontrol edilmeli.
+        var userCheck = users.find(q => q.name == name && q.surname == surname)
+
+
+        var user = {
+            name,
+            surname
+        }
+        users.push(user)
+
+        var liElement = document.createElement("li")
+        liElement.innerHTML = user.name + " " + user.surname
+
+        document.querySelector("ul").appendChild(liElement)
+
+        document.querySelector("h3").innerHTML = users.length
+    }
+
+    function empty(){
+        users = []
+
+        document.querySelector("h3").innerHTML = users.length
+        document.querySelector("ul").innerHTML = ""
+    }
+
+
+    //push -> diziye eleman ekler
+    //length -> propery
+
+
+    var countries = ["Türkiye", "Almanya", "Fransa"]
+
+    //fransa var mı?
+
+    if(countries.includes("Fransa")){
+        
+    }
+
+
+</script>
+
+</html>
