@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="
+    https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js
+    "></script>
+</head>
+<body>
+    
+</body>
+<script>
+    var date = new Date()
+    console.log("date", date);
+
+    //moment ile bir date objesi oluşturulabilir
+    const d = moment()
+    var newDate = d.add(1, 'days');
+
+    //4 gün öncesini bir date objesi olarak almak için
+    const d2 = moment()
+    var newDate2 = d2.add(-1, 'days');
+
+
+    console.log("newDate", newDate);
+    console.log("newDate2", newDate2);
+
+    //moment ile bir date objesi oluşturulabilir
+
+
+    //Moment format samples
+    var d3 = moment()
+    console.log(moment().format("DD.MM.YYYY dddd"));
+
+    
+</script>
+</html>
