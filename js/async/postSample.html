@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">Name</label>
+        <input type="text" id="name">
+    </div>
+    <div>
+        <label for="">Description</label>
+        <input type="text" id="description">
+    </div>
+    <div>
+        <button onclick="add()">Add</button>
+    </div>
+</body>
+<script>
+    //api url https://northwind.vercel.app/api/categories
+
+    function add(){
+        var name = document.querySelector("#name").value;
+        var description = document.querySelector("#description").value;
+
+        var data = {
+            name: name,
+            description: description
+        }
+
+        fetch("https://northwind.vercel.app/api/categories",{
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    }
+</script>
+</html>

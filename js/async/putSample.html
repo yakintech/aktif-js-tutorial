@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+            <label for="">Product Id</label>
+            <input type="text" id="productId">
+    </div>
+    <div>
+            <label for="">Name</label>
+            <input type="text" id="name">
+    </div>
+    <div>
+            <label for="">Unit Price</label>
+            <input type="text" id="unitPrice">
+    </div>
+    
+    <div>
+            <button onclick="updateProduct()">Update</button>
+    </div>
+</body>
+<script>
+
+    function updateProduct(){
+        var productId = document.querySelector("#productId").value;
+        var name = document.querySelector("#name").value;
+        var unitPrice = document.querySelector("#unitPrice").value;
+
+        var data = {
+            id: productId,
+            name: name,
+            unitPrice: unitPrice
+        }
+
+        fetch("https://northwind.vercel.app/api/products/"+productId,{
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    }
+
+</script>
+</html>

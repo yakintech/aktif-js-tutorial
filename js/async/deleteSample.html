@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">Product Id</label>
+        <input type="text" id="productId">
+    </div>
+    <div>
+        <button onclick="deleteProduct()">Delete</button>
+    </div>
+</body>
+<script>
+    //delete product with fetch
+    function deleteProduct(){
+        var productId = document.querySelector("#productId").value;
+
+        fetch("https://northwind.vercel.app/api/products/"+productId,{
+            method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    }
+</script>
+</html>
