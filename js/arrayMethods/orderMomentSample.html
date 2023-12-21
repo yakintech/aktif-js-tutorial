@@ -29548,29 +29548,36 @@
     ]
 
     //Tüm siparişlerin günlerini ekrana yaz. Hangi sipariş hangi gün verildi
-   
+
     orders.map(item => {
-       
+
 
         var orderDate = moment(item.orderDate)
-       // console.log(orderDate.format("dddd"))
+        // console.log(orderDate.format("dddd"))
 
         //get day of week number
         //console.log(orderDate.day())
 
-        
+
 
         var shippedDate = moment(item.shippedDate)
         var requiredDate = moment(item.requiredDate)
 
-        if(shippedDate > requiredDate){
-            console.log("Kargolama tarihi teslim tarihinden büyük")
+        if (shippedDate > requiredDate) {
+            //console.log("Kargolama tarihi teslim tarihinden büyük")
             console.log(shippedDate._d);
             console.log(requiredDate._d);
+            //difference day
+            var difference = shippedDate.diff(requiredDate, "days")
+            console.log(difference);
         }
 
+        //moment locale
+       
+
     })
-    
+    console.log(moment.locale());
+
 </script>
 
 </html>

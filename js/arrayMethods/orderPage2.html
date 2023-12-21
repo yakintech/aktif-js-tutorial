@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./orders.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js
+    "></script>
+</head>
+<body>
+    <div>
+        <label for="">Search</label>
+        <input type="text" id="searchInput">
+        <button onclick="search()">Search</button>
+    </div>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer ID</th>
+                <th>Order Date</th>
+                <th>Shipped Date</th>
+        
+                <th>Ship Name</th>
+                <th>Ship City</th>
+                <th>Ship Country</th>
+                <th>Difference</th>
+            </tr>
+        </thead>
+        <tbody id="orderTable">
+        </tbody>
+    </table>
+    
+</body>
+<script>
+
+
+    orders.map(item => {
+        let trElement = document.createElement('tr')
+
+        let tdElement = document.createElement('td')
+        tdElement.innerHTML = item.id
+
+        let tdElement2 = document.createElement('td')
+        tdElement2.innerHTML = item.customerId
+
+        let tdElement3 = document.createElement('td')
+        tdElement3.innerHTML = moment(item.orderDate).format('DD/MM/YYYY')
+
+        let tdElement4 = document.createElement('td')
+        tdElement4.innerHTML = moment(item.shippedDate).format('DD/MM/YYYY')
+
+        let tdElement5 = document.createElement('td')
+        tdElement5.innerHTML = item.shipName
+
+        let tdElement6 = document.createElement('td')
+        tdElement6.innerHTML = moment(item.shippedDate).diff(moment(item.orderDate), 'days')
+
+        let tdElement7 = document.createElement('td')
+        tdElement7.innerHTML = item.shipAddress.city
+
+        let tdElement8 = document.createElement('td')
+        tdElement8.innerHTML = item.shipAddress.country
+
+
+
+
+        trElement.appendChild(tdElement)
+        trElement.appendChild(tdElement2)
+        trElement.appendChild(tdElement3)
+        trElement.appendChild(tdElement4)
+        trElement.appendChild(tdElement5)
+
+        trElement.appendChild(tdElement7)
+        trElement.appendChild(tdElement8)
+        trElement.appendChild(tdElement6)
+
+
+        document.getElementById('orderTable').appendChild(trElement)
+
+        //3 günden fazla süren siparişlerin arkaplanını kırmızı yap
+        if(moment(item.shippedDate).diff(moment(item.orderDate), 'days') > 3){
+            trElement.style.backgroundColor = 'red'
+        }
+    })
+
+    function search(){
+        var search = document.getElementById('searchInput').value
+
+        var filteredOrders = orders.filter(item => item.shipAddress.shipAddress.toLowerCase().includes(search.toLowerCase()))
+    }
+
+</script>
+</html>
