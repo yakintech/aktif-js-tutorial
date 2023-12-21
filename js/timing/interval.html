@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+
+    <button>Stop Interval</button>
+</body>
+<script>
+    //2 saniyede bir console hello world yazdırır
+    setInterval(() => {
+        console.log('Hello World');
+    }, 2000)
+
+    //1000 milisaniye = 1 saniye
+
+    //generate random number and set random number every 2 seconds
+
+    let interval = setInterval(() => {
+        let randomNumber = Math.floor(Math.random() * 100);
+        document.querySelector('ul').innerHTML += `<li>${randomNumber}</li>`
+    }, 1000)
+
+    document.querySelector('button').addEventListener('click', () => {
+        clearInterval(interval);
+    })
+
+
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="getProducts()">Get Products</button>
+    <ul>
+
+    </ul>
+</body>
+<script>
+
+    function getProducts() {
+        //uzak url den ürünlerimi alıp li içerisine yerleştireceğim.
+        fetch("https://northwind.vercel.app/api/products")
+            .then(res => res.json())
+            .then(data => {
+
+                data.map(item => {
+                    var liElement = document.createElement('li')
+                    liElement.innerHTML = item.name
+
+                    document.querySelector("ul").appendChild(liElement)
+                })
+
+            })
+    }
+
+
+
+</script>
+
+</html>
