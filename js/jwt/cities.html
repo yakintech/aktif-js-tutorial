@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+</body>
+<script>
+    //get cities from http://localhost:3000/ with token in header
+
+    //add headers from localStorage
+    let token = localStorage.getItem('token');
+    fetch('http://localhost:3000/', {
+        headers: { Authorization: 'Bearer ' + token }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        let cities = data;
+        let list = document.querySelector('ul');
+        cities.forEach(city => {
+            let li = document.createElement('li');
+            li.textContent = city;
+            list.appendChild(li);
+        });
+    })
+    .catch((error) => {
+        alert('Auth failed');
+    });
+
+
+</script>
+
+</html>

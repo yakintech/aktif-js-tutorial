@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+
+</body>
+<script>
+    var data = {
+        name: "IPhone",
+        unitPrice: 5000
+    }
+
+    var response1 = axios.get("https://northwind.vercel.app/api/suppliers")
+
+
+    var response2 = axios.get("https://northwind.vercel.app/api/categories")
+
+
+    var response3 = axios.get("https://northwind.vercel.app/api/productss")
+
+    Promise.all([response1, response2, response3])
+        .then(res => {
+            console.log("Success", res[0]);
+        })
+        .catch(err => {
+            console.log("ERROR", err);
+        })
+
+
+
+    async function GetAll() {
+
+        try {
+
+            var res1 = await axios.get("https://northwind.vercel.app/api/suppliers")
+
+            // res1.data.forEach(element => {
+            //     var data = axios.get("https://northwind.vercel.app/api/suppliers/" + element.id)
+
+            // });
+
+
+            var res2 = await axios.get("https://northwind.vercel.app/api/categories")
+
+
+            var res3 = await axios.get("https://northwind.vercel.app/api/products")
+
+
+            ///
+        } catch (error) {
+            console.log("error", error);
+        }
+    }
+
+
+    GetAll()
+
+
+
+</script>
+
+</html>
